@@ -9,8 +9,9 @@ import {Subscription} from 'rxjs/Subscription';
 })
 export class UserComponent implements OnInit, OnDestroy {
   user: {id: number, name: string};
+  private paramSubscription: Subscription;  // insert this in the constructor will cause an error
 
-  constructor(private activatedRoute: ActivatedRoute, private paramSubscription: Subscription) { }
+  constructor(private activatedRoute: ActivatedRoute) { }
 
   ngOnInit() {
     this.user = {
@@ -27,7 +28,8 @@ export class UserComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.paramSubscription.unsubscribe();   // this line added in ngOnDestroy to make sure this observable is cleared when component is destroyed (performance improvement)
+    this.paramSubscription.unsubscribe();
+    /* this line added in ngOnDestroy to make sure this observable is cleared when component is destroyed (performance improvement) */
   }
 
 
