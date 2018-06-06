@@ -9,7 +9,18 @@
       </a>
     </div>
   </div>
-  <div class="col-xs-12 col-sm-4">
+
+  <div style="display: inline; padding: 10px">
+    <a class="btn btn-danger" routerLink="servers" >Reload Servers (error)</a>
+
+    <!-- the ABOVE will give errors, because routerLink will go to /servers/servers because
+    this is using relative path. To fix this, use absolute path as BELOW -->
+
+    <a class="btn btn-success" routerLink="/servers">Reload Servers (correct)</a>
+  </div>
+
+  <div class="col-xs-12 col-sm-4"><br/>
+
     <app-edit-server></app-edit-server>
     <hr>
     <app-server></app-server>
