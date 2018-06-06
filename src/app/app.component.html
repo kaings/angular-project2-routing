@@ -10,13 +10,13 @@
         <!-- if we use href="/", href="/servers", href="/users" ... this will refresh the page which we do not want THEREFORE
         We use routerLink Directive ... -->
 
-        <li role="presentation" class="active">
+        <li role="presentation" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">
           <a routerLink="/">Home</a>
         </li>
-        <li role="presentation">
+        <li role="presentation" routerLinkActive="active">
           <a routerLink="/servers">Servers</a>
         </li>
-        <li role="presentation">
+        <li role="presentation" routerLinkActive="active">
           <a [routerLink]="['/users']">Users</a>
           <!-- can also use property binding for routerLink using array... eg. ['user','some1','some2'] represent /user/some1/some2 path -->
         </li>
