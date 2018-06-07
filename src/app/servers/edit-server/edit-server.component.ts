@@ -28,8 +28,8 @@ export class EditServerComponent implements OnInit, OnDestroy {
     console.log(this.queryParamsSubscription = this.activatedRoute.queryParams.subscribe());  // value is at _subscriptions > [] > _subject > _value
     console.log(this.fragmentSubscription = this.activatedRoute.fragment.subscribe());    // value is at _subscriptions > [] > _subject > _value
 
-    // this.activatedRoute.queryParams.subscribe( (params: Params) => { console.log(params); } );
-    // this.activatedRoute.fragment.subscribe( (params: string) => { console.log(params); } );
+    // this.activatedRoute.queryParams.subscribe( (qParams: Params) => { console.log(qParams); } );
+    // this.activatedRoute.fragment.subscribe( (fParams: string) => { console.log(fParams); } );
 
     this.server = this.serversService.getServer(1);
     this.serverName = this.server.name;

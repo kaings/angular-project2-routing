@@ -23,7 +23,8 @@ export class ServerComponent implements OnInit, OnDestroy {
 
     this.paramSubscription = this.activatedRoute.params.subscribe(
       (params: Params) => {
-        this.server = this.serversService.getServer(parseInt(params['id'], 0));   // learn more about parseInt radix parameter...'0' represents octal
+        this.server = this.serversService.getServer(parseInt(params['id'], 0));
+        // learn more about parseInt radix parameter...'0' represents octal
       }
     );
   }
