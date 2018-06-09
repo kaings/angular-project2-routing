@@ -13,6 +13,7 @@ export class EditServerComponent implements OnInit, OnDestroy {
   server: {id: number, name: string, status: string};
   serverName = '';
   serverStatus = '';
+  allowEdit = false;
 
   queryParamsSubscription: Subscription;
   fragmentSubscription: Subscription;
@@ -30,6 +31,15 @@ export class EditServerComponent implements OnInit, OnDestroy {
 
     // this.activatedRoute.queryParams.subscribe( (qParams: Params) => { console.log(qParams); } );
     // this.activatedRoute.fragment.subscribe( (fParams: string) => { console.log(fParams); } );
+
+    /* retrieve allowEdit queryParams passed from servers.component.html */
+    this.activatedRoute.queryParams.subscribe(
+      (qParams: Params) => {
+        this.allowEdit = qParams['allowEdit'] === '1' ? true : false;
+        console.log('----- allowEdit value -----');
+        console.log(this.allowEdit);
+      }
+    );
 
     this.server = this.serversService.getServer(1);
     this.serverName = this.server.name;
