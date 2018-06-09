@@ -1,5 +1,7 @@
 <h5>{{ server.name }}</h5>
 <p>Server status is {{ server.status }}</p>
-<button class="btn btn-success" [routerLink]="['edit']">Edit Server 1</button>
+<button class="btn btn-success"
+        [routerLink]="['edit']"
+        [queryParamsHandling]="'preserve'">Edit Server 1</button>
 
 <button class="btn btn-success" (click)="onEditServer()">Edit Server 2</button>

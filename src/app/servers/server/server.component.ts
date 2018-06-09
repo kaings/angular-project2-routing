@@ -34,6 +34,8 @@ export class ServerComponent implements OnInit, OnDestroy {
   }
 
   onEditServer() {
-    this.router.navigate(['edit'], {relativeTo: this.activatedRoute});
+    this.router.navigate(['edit'], {relativeTo: this.activatedRoute, queryParamsHandling: 'preserve'});
+    /* queryParamsHandling: 'merge' to merge the old & new queryParams. 'preserve' is only to keep the old one (new one if available,
+    will be replaced by the old one */
   }
 }
