@@ -1,2 +1,5 @@
-<p>User with ID _ID_ loaded.</p>
-<p>User name is _NAME_</p>
+<p>User with ID {{ user.id }} loaded.</p>
+<p>User name is {{ user.name }}</p>
+<a [routerLink]="['/users','9','Will']">Switch User to Will Will (9)</a>
+<br>
+<a [routerLink]="['/users','88','Kaing']">Switch User to Kaing (88)</a>
