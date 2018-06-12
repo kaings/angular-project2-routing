@@ -1,7 +1,7 @@
 import {Component, OnDestroy, OnInit} from '@angular/core';
 
 import { ServersService } from '../servers.service';
-import {ActivatedRoute, Params, Router} from '@angular/router';
+import {ActivatedRoute, Data, Router} from '@angular/router';
 import {Subscription} from 'rxjs/Subscription';
 
 @Component({
@@ -17,16 +17,27 @@ export class ServerComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // this.server = this.serversService.getServer(1);
-    const serverId = +this.activatedRoute.snapshot.params['id'];   // adding '+' in front will parse the result (string) into integer
-    // to convert the retrieve id<string> and convert into id<number>, can use '+' in front or simply 'parseInt()'
-    this.server = this.serversService.getServer(serverId);
+    // const serverId = +this.activatedRoute.snapshot.params['id'];   // adding '+' in front will parse the result (string) into integer
 
+    // to convert the retrieve id<string> and convert into id<number>, can use '+' in front or simply 'parseInt()'
+    // this.server = this.serversService.getServer(serverId);
+
+    /*
     this.paramSubscription = this.activatedRoute.params.subscribe(
       (params: Params) => {
         this.server = this.serversService.getServer(parseInt(params['id'], 0));
         // learn more about parseInt radix parameter...'0' represents octal
       }
     );
+    */
+
+    /* loading server (by id) by utilising Route Guard: Resolve */
+    this.activatedRoute.data.subscribe(
+      (data: Data) => {
+        this.server = data['serverData'];
+      }
+    );
+
   }
 
   ngOnDestroy() {
