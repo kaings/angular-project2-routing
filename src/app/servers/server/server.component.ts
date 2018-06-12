@@ -17,7 +17,7 @@ export class ServerComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     // this.server = this.serversService.getServer(1);
-    const serverId = +this.activatedRoute.params['id'];   // adding '+' in front will parse the result (string) into integer
+    const serverId = +this.activatedRoute.snapshot.params['id'];   // adding '+' in front will parse the result (string) into integer
     // to convert the retrieve id<string> and convert into id<number>, can use '+' in front or simply 'parseInt()'
     this.server = this.serversService.getServer(serverId);
 

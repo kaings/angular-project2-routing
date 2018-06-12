@@ -10,6 +10,7 @@ import {HomeComponent} from './home/home.component';
 import {ServersComponent} from './servers/servers.component';
 import {AuthGuard} from './auth-guard.service';
 import {CanDeactivateGuard} from './servers/edit-server/can-deactivate-guard.service';
+import {ErrorPageComponent} from './error-page/error-page.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -24,7 +25,8 @@ const appRoutes: Routes = [
       {path: ':id', component: ServerComponent},
       {path: ':id/edit', component: EditServerComponent, canDeactivate: [CanDeactivateGuard]}
     ]},
-  {path: 'page-not-found', component: PageNotFoundComponent}, // redirecting & wildcard routes
+  // {path: 'page-not-found', component: PageNotFoundComponent}, // redirecting & wildcard routes
+  {path: 'page-not-found', component: ErrorPageComponent, data: {message: 'Page Not Found!'}},
   {path: '**', redirectTo: '/page-not-found'}
 ];
 
