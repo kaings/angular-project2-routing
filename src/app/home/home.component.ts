@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Router} from '@angular/router';
 import {AuthService} from '../auth.service';
+import {NgForm, NgModel} from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -8,6 +9,8 @@ import {AuthService} from '../auth.service';
   styleUrls: ['./home.component.css']
 })
 export class HomeComponent implements OnInit {
+  detailedInfo: string;
+  @ViewChild('f') formJSElement: NgForm;
 
   constructor(private router: Router, private authService: AuthService) { }
 
@@ -28,5 +31,9 @@ export class HomeComponent implements OnInit {
 
   onLogOut() {
     this.authService.logOut();
+  }
+
+  onSubmit(g: NgModel, h: NgModel, i: NgModel, j: NgModel) {
+    console.log(this.formJSElement, g, h, i, j);
   }
 }
