@@ -8,8 +8,10 @@
 
 <div class="jumbotron">
   <form (ngSubmit)="onSubmit(g, h, i, j)" #f="ngForm">
+    <!--'form' is the selector for NgForm Directive itself! Ref: https://github.com/angular/angular/blob/master/packages/forms/src/directives/ng_form.ts#L93-->
     <div class="form-group">
       <input type="text" class="form-control" name="username" ngModel #g="ngModel" required>
+      <!--'ngModel' is the selector of the NgModel Directive without which, this template reference " #g='ngModel' " will NOT work!!-->
     </div>
     <span class="help-block" *ngIf="!g.valid && g.touched">Please fill in username</span>
     <div class="form-group">
